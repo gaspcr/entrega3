@@ -2,19 +2,39 @@
 
 <?php
     require("../config/conexion.php");
-    $result = $db -> prepare("TRUNCATE TABLE users;");
+    $query = "SELECT id_artista, nombre FROM artistas;";
+    $result = $db2 -> prepare($query);
     $result -> execute();
-    $dataCollected = $result -> fetchAll();
-    print_r($dataCollected);
+    $artistas = $result -> fetchAll();
 ?>
 
 <?php
-    require("../config/conexion.php");
-    $result = $db -> prepare("\copy users(id, nombre, password, tipo) FROM 'datos/usuarios.csv' DELIMITER ',' CSV HEADER;");
+    $query = "SELECT nombre FROM productora;";
+    $result = $db -> prepare($query);
     $result -> execute();
-    $dataCollected = $result -> fetchAll();
-    # Mostrar si los usuarios fueron importados
-    print_r($dataCollected);
+    $productos = $result -> fetchAll();
+?>
+
+<?php
+    foreach ($artistas as $artista) {
+        $id_artista = $artista[0];
+        $nombre = $artista[1];
+        $password = substr(str_shuffle("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"), 0, rand(8,10));
+        $query = "INSERT INTO users VALUES ('$id_artista', '$nombre', '$password', '1');";
+        $result = $db -> prepare($query);
+        $result -> execute();
+    }
+?>
+
+<?php
+    foreach ($productos as $productora) {
+        # el id de la productora es un entero consecutivo
+        $nombre = $productora[0];
+        $password = substr(str_shuffle("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"), 0, rand(8,10));
+        $query = "INSERT INTO users VALUES (DEFAULT, '$nombre', '$password', '2');";
+        $result = $db -> prepare($query);
+        $result -> execute();
+    }
 ?>
 
 <?php
