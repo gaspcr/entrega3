@@ -53,7 +53,7 @@
             <br>
 
             <div>
-                <form action="importar_usuarios.php" method="post">
+                <form action="queries/importar_usuarios.php" method="post">
                     <input type="submit" value="Importar usuarios">
                 </form>
             </div>
