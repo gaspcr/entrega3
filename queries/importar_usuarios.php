@@ -31,7 +31,6 @@
 <?php
     foreach ($productoras as $productora) {
         $nombre = $artista[0];
-        $nombre = str_replace(" ", "_", $nombre);
         $password = substr(str_shuffle("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"), 0, rand(8,10));
         $query = "INSERT INTO users VALUES ('1', '$nombre', '$password', '1');";
         $result = $db -> prepare($query);
