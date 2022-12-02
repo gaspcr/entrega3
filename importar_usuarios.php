@@ -13,7 +13,9 @@ if ($result) {
 } else {
     echo "Hubo un error al importar los usuarios, por favor intenta vaciar la tabla USERS";
 }
+?>
 
+<?php
 $result1 = $db1 -> prepare("SELECT * FROM users;");
 $result1 -> execute();
 $dataCollected1 = $result1 -> fetchAll();
