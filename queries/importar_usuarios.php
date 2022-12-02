@@ -37,7 +37,7 @@
 <?php
     foreach ($productoras as $productora) {
         $n = 0;
-        $id_productora = P . $n;
+        $id_productora = 'P' . $n;
         $nombre = $productora[0];
         $nombre = str_replace(" ", "_", $nombre);
         $password = substr(str_shuffle("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"), 0, rand(8,10));
