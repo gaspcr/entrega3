@@ -8,26 +8,6 @@
 
 <?php
     require("../config/conexion.php");
-    $query = "SELECT id_artista, nombre FROM artistas;";
-    $result = $db2 -> prepare($query);
-    $result -> execute();
-    $artistas = $result -> fetchAll();
-?>
-
-<?php
-    foreach ($artistas as $artista) {
-        $id_artista = $artista[0];
-        $nombre = $artista[1];
-        $nombre = str_replace(" ", "_", $nombre);
-        $password = substr(str_shuffle("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"), 0, rand(8,10));
-        $query = "INSERT INTO users VALUES ('$id_artista', '$nombre', '$password', '1');";
-        $result = $db -> prepare($query);
-        $result -> execute();
-    }
-?>
-
-<?php
-    require("../config/conexion.php");
     $query = "SELECT nombre, pais FROM productora;";
     $result = $db -> prepare($query);
     $result -> execute();
@@ -45,6 +25,26 @@
         $result = $db -> prepare($query);
         $result -> execute();
         $n = $n + 1;
+    }
+?>
+
+<?php
+    require("../config/conexion.php");
+    $query = "SELECT id_artista, nombre FROM artistas;";
+    $result = $db2 -> prepare($query);
+    $result -> execute();
+    $artistas = $result -> fetchAll();
+?>
+
+<?php
+    foreach ($artistas as $artista) {
+        $id_artista = $artista[0];
+        $nombre = $artista[1];
+        $nombre = str_replace(" ", "_", $nombre);
+        $password = substr(str_shuffle("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"), 0, rand(8,10));
+        $query = "INSERT INTO users VALUES ('$id_artista', '$nombre', '$password', '1');";
+        $result = $db -> prepare($query);
+        $result -> execute();
     }
 ?>
 
