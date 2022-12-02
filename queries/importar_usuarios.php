@@ -46,7 +46,6 @@
         $result -> execute();
         $n = $n + 1;
     }
-    echo count($productoras);
 ?>
 
 <?php
