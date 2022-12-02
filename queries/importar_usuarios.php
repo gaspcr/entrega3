@@ -5,6 +5,12 @@
     $result = $db -> prepare("TRUNCATE TABLE users;");
     $result -> execute();
     $dataCollected = $result -> fetchAll();
+    # Mostrar si la consulta fue exitosa
+    if ($dataCollected == 0) {
+        echo "Se han eliminado todos los usuarios.";
+    } else {
+        echo "No se han podido eliminar todos los usuarios.";
+    }
 ?>
 
 <?php
@@ -12,6 +18,12 @@
     $result = $db -> prepare("\copy users FROM 'datos/usuarios.csv' DELIMITER ',' CSV HEADER;");
     $result -> execute();
     $dataCollected = $result -> fetchAll();
+    # Mostrar si los usuarios fueron importados
+    if ($dataCollected == 0) {
+        echo "Se han importado todos los usuarios.";
+    } else {
+        echo "No se han podido importar todos los usuarios.";
+    }
 ?>
 
 <?php
