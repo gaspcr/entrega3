@@ -37,6 +37,13 @@
         $result -> execute();
     }
 ?>
+# mostrar el contenido de $productoras
+<?php
+    foreach ($productoras as $productora) {
+        echo $productora[0];
+        echo $productora[1];
+    }
+?>
 
 <?php
 $result = $db -> prepare("SELECT * FROM users;");
