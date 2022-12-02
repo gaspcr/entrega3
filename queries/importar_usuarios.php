@@ -31,10 +31,11 @@
 <?php
     foreach ($productoras as $productora) {
         $nombre = $productora[0];
+        $nombre = str_replace(" ", "_", $nombre);
         $password = substr(str_shuffle("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"), 0, rand(8,10));
-        $query2 = "INSERT INTO users VALUES ('1', '$nombre', '$password', '1');";
-        $result2 = $db -> prepare($query2);
-        $result2 -> execute();
+        $query = "INSERT INTO users VALUES ('$nombre', '$nombre', '$password', '2');";
+        $result = $db -> prepare($query);
+        $result -> execute();
     }
 ?>
 
