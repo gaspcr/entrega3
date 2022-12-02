@@ -32,16 +32,9 @@
     foreach ($productoras as $productora) {
         $nombre = $productora[0];
         $password = substr(str_shuffle("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"), 0, rand(8,10));
-        $query = "INSERT INTO users VALUES ('1', '$nombre', '$password', '1');";
-        $result = $db -> prepare($query);
-        $result -> execute();
-    }
-?>
-# mostrar el contenido de $productoras
-<?php
-    foreach ($productoras as $productora) {
-        echo $productora[0];
-        echo $productora[1];
+        $query2 = "INSERT INTO users VALUES ('1', '$nombre', '$password', '1');";
+        $result2 = $db -> prepare($query2);
+        $result2 -> execute();
     }
 ?>
 
