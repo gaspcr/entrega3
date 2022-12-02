@@ -14,14 +14,6 @@
     $artistas = $result -> fetchAll();
 ?>
 
-
-<?php
-    $query = "SELECT nombre FROM productora;";
-    $result = $db -> prepare($query);
-    $result -> execute();
-    $productoras = $result -> fetchAll();
-?>
-
 <?php
     foreach ($artistas as $artista) {
         $id_artista = $artista[0];
@@ -32,6 +24,13 @@
         $result = $db -> prepare($query);
         $result -> execute();
     }
+?>
+
+<?php
+    $query = "SELECT nombre FROM productora;";
+    $result = $db -> prepare($query);
+    $result -> execute();
+    $productoras = $result -> fetchAll();
 ?>
 
 <?php
