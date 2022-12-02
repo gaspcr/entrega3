@@ -19,6 +19,7 @@
     foreach ($artistas as $artista) {
         $id_artista = $artista[0];
         $nombre = $artista[1];
+        $nombre = str_replace(" ", "_", $nombre);
         $password = substr(str_shuffle("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"), 0, rand(8,10));
         $query = "INSERT INTO users VALUES ('$id_artista', '$nombre', '$password', '1');";
         $result = $db -> prepare($query);
@@ -30,6 +31,7 @@
     foreach ($productoras as $productora) {
         # el id de la productora es un entero consecutivo
         $nombre = $productora[0];
+        $nombre = str_replace(" ", "_", $nombre);
         $password = substr(str_shuffle("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"), 0, rand(8,10));
         $query = "INSERT INTO users VALUES (DEFAULT, '$nombre', '$password', '2');";
         $result = $db -> prepare($query);
