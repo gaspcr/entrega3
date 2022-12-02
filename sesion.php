@@ -11,6 +11,6 @@ if (sizeof($dataCollected) == 0) {
     header("Location: index.php?error=Usuario o contraseña incorrectos");
 } else {
     $_SESSION['user'] = $usuario;
-    header("Location: home.php");
+    header("Location: ingreso.php");
 }
 ?>
