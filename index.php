@@ -2,7 +2,7 @@
             <h3 align="center">ingresar sesion con productora</h3>
              <?php
             #Primero obtenemos todos los tipos de pokemones
-            require("/config/conexion.php");
+            require("config/conexion.php");
             $result = $db -> prepare("SELECT DISTINCT nombre FROM productora;");
             $result -> execute();
             $dataCollected = $result -> fetchAll();
@@ -28,7 +28,7 @@
             <h3 align="center">ingresar sesion con artista</h3>
              <?php
             #Primero obtenemos todos los tipos de pokemones
-            require("/config/conexion.php");
+            require("config/conexion.php");
             $result = $db -> prepare("SELECT DISTINCT nombre FROM artistas;");
             $result -> execute();
             $dataCollected = $result -> fetchAll();
