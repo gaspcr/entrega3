@@ -1,6 +1,6 @@
 <?php
 session_start();
-$usuario = $_SESSION['nombre'];
-$contrasena = $_SESSION['password'];
+$miusuario = $_SESSION['nombre'];
+$micontrasena = $_SESSION['password'];
 
-echo "<h1>BIENVENIDO $usuario, tu contraseña es $contrasena</h1>";
+echo "<h1>BIENVENIDO $miusuario, tu contraseña es $micontrasena</h1>";
