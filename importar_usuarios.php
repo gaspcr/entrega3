@@ -33,6 +33,6 @@ foreach ($dataCollected as $d) {
 }
 ?>
 
-<a href="../index.php" class="btn btn-primary">Volver</a>
+<a href="/index.php" class="btn btn-primary">Volver</a>
 
 </html>
