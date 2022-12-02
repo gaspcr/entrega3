@@ -29,6 +29,6 @@ $dataCollected = $result -> fetchAll();
 </table>
 
 
-<a href="../" class="btn btn-primary">Volver</a>
+<a href="../index.php" class="btn btn-primary">Volver</a>
 
 </html>
