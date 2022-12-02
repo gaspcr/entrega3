@@ -8,6 +8,7 @@ $dataCollected = $result -> fetchAll();
 ?>
 
 <?php
+
 if ($result) {
     echo "Se importaron los usuarios correctamente";
 } else {
@@ -16,18 +17,18 @@ if ($result) {
 ?>
 
 <?php
-$result1 = $db1 -> prepare("SELECT * FROM users;");
-$result1 -> execute();
-$dataCollected1 = $result1 -> fetchAll();
+$result = $db -> prepare("SELECT * FROM users;");
+$result -> execute();
+$dataCollected = $result -> fetchAll();
 ?>
 
 <?php
-foreach ($dataCollected1 as $d1) {
+foreach ($dataCollected as $d) {
     echo "<tr>";
-    echo "<td>$d1[0]</td>";
-    echo "<td>$d1[1]</td>";
-    echo "<td>$d1[2]</td>";
-    echo "<td>$d1[3]</td>";
+    echo "<td>$d[0]</td>";
+    echo "<td>$d[1]</td>";
+    echo "<td>$d[2]</td>";
+    echo "<td>$d[3]</td>";
     echo "</tr>";
 }
 ?>
