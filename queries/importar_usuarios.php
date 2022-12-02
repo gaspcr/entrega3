@@ -12,7 +12,7 @@
     $query = "SELECT nombre FROM productora;";
     $result = $db -> prepare($query);
     $result -> execute();
-    $productos = $result -> fetchAll();
+    $productoras = $result -> fetchAll();
 ?>
 
 <?php
@@ -27,7 +27,7 @@
 ?>
 
 <?php
-    foreach ($productos as $productora) {
+    foreach ($productoras as $productora) {
         # el id de la productora es un entero consecutivo
         $nombre = $productora[0];
         $password = substr(str_shuffle("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"), 0, rand(8,10));
