@@ -6,7 +6,6 @@
     $result -> execute();
 ?>
 
-# Si la consulta se ejecuta correctamente, mostrar un mensaje de éxito. Si no, mostrar un mensaje de error.
 <?php
     if ($result) {
         echo "Se han borrado los usuarios exitosamente.";
