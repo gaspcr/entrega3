@@ -58,4 +58,10 @@
                 </form>
             </div>
 
+            <div>
+                <form action="queries/borrar_usuarios.php" method="post">
+                    <input type="submit" value="Borrar usuarios">
+                </form>
+            </div>
+
 <?php include("template/pie.php"); ?>

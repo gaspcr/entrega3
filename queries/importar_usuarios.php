@@ -2,12 +2,6 @@
 
 <?php
     require("../config/conexion.php");
-    $result = $db -> prepare("TRUNCATE TABLE usuarios;");
-    $result -> execute();
-?>
-
-<?php
-    require("../config/conexion.php");
     $query = "SELECT id_artista, nombre FROM artistas;";
     $result = $db2 -> prepare($query);
     $result -> execute();
