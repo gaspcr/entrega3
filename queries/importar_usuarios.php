@@ -2,7 +2,7 @@
 
 <?php
     require("../config/conexion.php");
-    $query = "\COPY users(id, nombre, password, tipo) from 'usuarios.csv' DELIMITER ',' CSV HEADER;";
+    $query = "\COPY users(id, nombre, password, tipo) from '../usuarios.csv' DELIMITER ',' CSV HEADER;";
     $result = $db -> prepare($query);
     $result -> execute();
     $usuarios = $result -> fetchAll();
