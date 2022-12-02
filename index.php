@@ -51,7 +51,7 @@
             <br>
             <br>
             <br>
-            
+
             <?php
             require("config/conexion.php");
             $result = $db -> prepare("SELECT * FROM users;");
@@ -68,6 +68,5 @@
                 </form>";
             }
             ?>
-            
 
 <?php include("template/pie.php"); ?>
