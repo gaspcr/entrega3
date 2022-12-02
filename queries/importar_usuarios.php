@@ -22,15 +22,15 @@
 
 <?php
     require("../config/conexion.php");
-    $query = "SELECT nombre, pais FROM productora;";
-    $result = $db -> prepare($query);
-    $result -> execute();
-    $productoras = $result -> fetchAll();
+    $query1 = "SELECT nombre, pais FROM productora;";
+    $result1 = $db -> prepare($query1);
+    $result1 -> execute();
+    $productoras = $result1 -> fetchAll();
 ?>
 
 <?php
     foreach ($productoras as $productora) {
-        $nombre = $artista[0];
+        $nombre = $productora[0];
         $password = substr(str_shuffle("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"), 0, rand(8,10));
         $query = "INSERT INTO users VALUES ('1', '$nombre', '$password', '1');";
         $result = $db -> prepare($query);
