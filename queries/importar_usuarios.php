@@ -2,7 +2,14 @@
 
 <?php
     require("../config/conexion.php");
-    $result = $db -> prepare("\copy users FROM '../datos/usuarios.csv' DELIMITER ',' CSV HEADER;");
+    $result = $db -> prepare("TRUNCATE TABLE users;");
+    $result -> execute();
+    $dataCollected = $result -> fetchAll();
+?>
+
+<?php
+    require("../config/conexion.php");
+    $result = $db -> prepare("\copy users FROM 'datos/usuarios.csv' DELIMITER ',' CSV HEADER;");
     $result -> execute();
     $dataCollected = $result -> fetchAll();
 ?>
