@@ -13,3 +13,6 @@
         echo "Ha ocurrido un error al borrar los usuarios.";
     }
 ?>
+
+<a href="../index.php" class="btn btn-primary">Volver</a>
+</html>
