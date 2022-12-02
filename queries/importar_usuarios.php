@@ -2,10 +2,9 @@
 
 <?php
     require("../config/conexion.php");
-    pg_query($db, "DELETE FROM users;");
-    # Cargar usuarios en la tabla users desde el archivo usuarios.csv
-    $file = fopen("usuarios.csv", "r");
-    pg_query($db, "COPY users(id, nombre, password, tipo) FROM $file WITH CSV HEADER;");
+    $result = $db -> prepare("\copy users FROM 'usuarios.csv' DELIMITER ',' CSV HEADER;");
+    $result -> execute();
+    $dataCollected = $result -> fetchAll();
 ?>
 
 <?php
