@@ -49,8 +49,13 @@
             </form>
             <br>
             <br>
-            
             <br>
             <br>
+
+            <div>
+                <form action="importar_usuarios.php" method="post">
+                    <input type="submit" value="Importar usuarios">
+                </form>
+            </div>
 
 <?php include("template/pie.php"); ?>
