@@ -51,17 +51,23 @@
             <br>
             <br>
             <br>
-
-            <div>
-                <form action="queries/importar_usuarios.php" method="post">
-                    <input type="submit" value="Importar usuarios">
-                </form>
-            </div>
-
-            <div>
-                <form action="queries/borrar_usuarios.php" method="post">
-                    <input type="submit" value="Borrar usuarios">
-                </form>
-            </div>
+            
+            <?php
+            require("config/conexion.php");
+            $result = $db -> prepare("SELECT * FROM users;");
+            $result -> execute();
+            $dataCollected = $result -> fetchAll();
+            if (sizeof($dataCollected) == 0) {
+                echo "<form align='center' action='queries/importar_usuarios.php' method='post'>
+                <input type='submit' value='importar usuarios'>
+                </form>";
+            }
+            else {
+                echo "<form align='center' action='queries/borrar_usuarios.php' method='post'>
+                <input type='submit' value='borrar usuarios'>
+                </form>";
+            }
+            ?>
+            
 
 <?php include("template/pie.php"); ?>

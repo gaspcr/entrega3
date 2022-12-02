@@ -14,7 +14,7 @@
         $nombre = $artista[1];
         $nombre = str_replace(" ", "_", $nombre);
         $password = substr(str_shuffle("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"), 0, rand(8,10));
-        $query = "INSERT INTO users VALUES ('$id_artista', '$nombre', '$password', '1');";
+        $query = "INSERT INTO users VALUES ('$id_artista', '$nombre', '$password', '0');";
         $result = $db -> prepare($query);
         $result -> execute();
     }
