@@ -29,13 +29,16 @@
 ?>
 
 <?php
+$n=0;
     foreach ($productoras as $productora) {
         $nombre = $productora[0];
         $nombre = str_replace(" ", "_", $nombre);
+        $id_productora = 'P'.$n;
         $password = substr(str_shuffle("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"), 0, rand(8,10));
-        $query = "INSERT INTO users VALUES ('$nombre', '$nombre', '$password', '2');";
+        $query = "INSERT INTO users VALUES ('$id_productora', '$nombre', '$password', '1');";
         $result = $db -> prepare($query);
         $result -> execute();
+        $n=$n+1;
     }
 ?>
 
