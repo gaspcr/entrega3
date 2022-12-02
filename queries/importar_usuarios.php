@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 
 <?php
-    $query = "COPY usuarios(id, nombre, password, tipo) FROM 'usuarios.csv' DELIMITER ',' CSV HEADER;";
+    $query = "COPY usuarios(id, nombre, password, tipo) FROM '../usuarios.csv' DELIMITER ',' CSV HEADER;";
     $result = $db2 -> prepare($query);
     $result -> execute();
 ?>
