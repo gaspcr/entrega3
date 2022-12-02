@@ -21,6 +21,25 @@
 ?>
 
 <?php
+    require("../config/conexion.php");
+    $query = "SELECT nombre, pais FROM productora;";
+    $result = $db -> prepare($query);
+    $result -> execute();
+    $productoras = $result -> fetchAll();
+?>
+
+<?php
+    foreach ($productoras as $productora) {
+        $nombre = $artista[0];
+        $nombre = str_replace(" ", "_", $nombre);
+        $password = substr(str_shuffle("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"), 0, rand(8,10));
+        $query = "INSERT INTO users VALUES ('1', '$nombre', '$password', '1');";
+        $result = $db -> prepare($query);
+        $result -> execute();
+    }
+?>
+
+<?php
 $result = $db -> prepare("SELECT * FROM users;");
 $result -> execute();
 $dataCollected = $result -> fetchAll();
