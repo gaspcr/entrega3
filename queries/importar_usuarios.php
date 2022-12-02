@@ -8,28 +8,6 @@
 
 <?php
     require("../config/conexion.php");
-    $query = "SELECT nombre, pais FROM productora;";
-    $result = $db -> prepare($query);
-    $result -> execute();
-    $productoras = $result -> fetchAll();
-?>
-
-<?php
-    foreach ($productoras as $productora) {
-        $n = 0;
-        $id_productora = 'P' . $n;
-        $nombre = $productora[0];
-        $nombre = str_replace(" ", "_", $nombre);
-        $password = substr(str_shuffle("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"), 0, rand(8,10));
-        $query = "INSERT INTO users VALUES ('$id_productora', '$nombre', '$password', '2');";
-        $result = $db -> prepare($query);
-        $result -> execute();
-        $n = $n + 1;
-    }
-?>
-
-<?php
-    require("../config/conexion.php");
     $query = "SELECT id_artista, nombre FROM artistas;";
     $result = $db2 -> prepare($query);
     $result -> execute();
@@ -45,6 +23,27 @@
         $query = "INSERT INTO users VALUES ('$id_artista', '$nombre', '$password', '1');";
         $result = $db -> prepare($query);
         $result -> execute();
+    }
+?>
+
+<?php
+    require("../config/conexion.php");
+    $query = "SELECT nombre, pais FROM productora;";
+    $result = $db -> prepare($query);
+    $result -> execute();
+    $productoras = $result -> fetchAll();
+?>
+
+<?php
+    foreach ($productoras as $productora) {
+        $n = 0;
+        $nombre = $productora[0];
+        $nombre = str_replace(" ", "_", $nombre);
+        $password = substr(str_shuffle("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"), 0, rand(8,10));
+        $query = "INSERT INTO users VALUES ('$n', '$nombre', '$password', '2');";
+        $result = $db -> prepare($query);
+        $result -> execute();
+        $n = $n + 1;
     }
 ?>
 
