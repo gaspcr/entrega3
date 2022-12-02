@@ -28,7 +28,7 @@
 
 <?php
     require("../config/conexion.php");
-    $query = "SELECT nombre FROM productora;";
+    $query = "SELECT nombre, pais FROM productora;";
     $result = $db -> prepare($query);
     $result -> execute();
     $productoras = $result -> fetchAll();
@@ -38,7 +38,7 @@
     foreach ($productoras as $productora) {
         $n = 0;
         $id_productora = 'P' . $n;
-        $nombre = $productora;
+        $nombre = $productora[0];
         $nombre = str_replace(" ", "_", $nombre);
         $password = substr(str_shuffle("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"), 0, rand(8,10));
         $query = "INSERT INTO users VALUES ('$id_productora', '$nombre', '$password', '2');";
