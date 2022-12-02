@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 
 <?php
-    require("config/conexion.php");
+    require("../config/conexion.php");
     $result = $db -> prepare("TRUNCATE TABLE usuarios;");
     $result -> execute();
 ?>
