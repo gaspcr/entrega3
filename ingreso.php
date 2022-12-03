@@ -1,9 +1,9 @@
 <?php
 session_start();
 $usuario = $_SESSION['user'];
-
-echo "<h1>BIENVENIDO $usuario</h1>";
-
-echo "<form align='center' action='queries/logout.php' method='post'>
-    <input type='submit' value='LOGOUT'>
-    </form>";
+if (isset($usuario)) {
+    echo "<h1>Bienvenido $usuario</h1>";
+    echo "<a href='queries/logout.php'>Cerrar sesión</a>";
+} else {
+    header("Location: index.php");
+}
