@@ -31,5 +31,7 @@
                 </form>";
             }
             ?>
+            <form align='center' action='readme.php' method='post'>
+                <input type='submit' value='README'>
 
 <?php include("template/pie.php"); ?>
